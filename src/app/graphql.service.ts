@@ -20,7 +20,7 @@ export class GraphqlService {
             duration
             style
             startTime
-            phototest {
+            photo {
               url
             }
           }
