@@ -20,6 +20,9 @@ export class GraphqlService {
             duration
             style
             startTime
+            photo {
+              url
+            }
           }
         }
       `
