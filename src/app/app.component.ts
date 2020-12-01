@@ -7,20 +7,13 @@ import {GraphqlService} from './graphql.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  hotelsData: any;
-  hotel: any;
-  destinationsData: any;
-  destination: any;
-
-  title = 'TPFestival';
+  concertsData: any;
+  concert: any;
 
   constructor(private api: GraphqlService) {
     console.log('TODO call API!');
-    this.api.getHotels().subscribe((data) => {
-      this.hotelsData = data.hotels;
-    });
-    this.api.getDestinations().subscribe((data) => {
-      this.destinationsData = data.destinations;
+    this.api.getConcerts().subscribe((data) => {
+      this.concertsData = data.concerts;
     });
   }
 }

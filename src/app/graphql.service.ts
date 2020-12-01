@@ -8,30 +8,17 @@ import {map} from 'rxjs/operators';
 })
 export class GraphqlService {
 
-  BASE_URL = 'https://api-eu-central-1.graphcms.com/v2/ckhvsqv50mw3e01xibuy0gmja/master';
+  BASE_URL = 'https://api-eu-central-1.graphcms.com/v2/cki5qqty8l28t01xn1czyfm61/master';
 
   constructor(private client: HttpClient) { }
-  getHotels() {
+  getConcerts() {
     return this.client.post(this.BASE_URL, {
       query: `
         query {
-          hotels {
-            name
-            rooms
-          }
-        }
-      `
-    }).pipe(map((r: any) => r.data));
-  }
-  getDestinations() {
-    return this.client.post(this.BASE_URL, {
-      query: `
-        query {
-          destinations {
-            name
-            image {
-              url
-              }
+          concerts {
+            artist
+            duration
+            style
           }
         }
       `

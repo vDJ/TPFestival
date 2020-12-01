@@ -1,23 +1,14 @@
 <html>
 <body>
 
+test
 
-
-<div *ngFor="let hotel of hotelsData">
+<div *ngFor="let concert of concertsData">
   <h1>
-    {{ hotel.name }}
-    {{ hotel.rooms }}
+    {{ concert.artist }}
+    {{ concert.duration }}
+    {{ concert.style }}
   </h1>
 </div>
-
-<div *ngFor="let destination of destinationsData">
-  <h1>
-    {{ destination.name }}
-    <img src="{{ destination.image.url }}"/>
-
-  </h1>
-</div>
-
-
 </body>
 </html>
