@@ -19,6 +19,7 @@ export class GraphqlService {
             artist
             duration
             style
+            startTime
           }
         }
       `
