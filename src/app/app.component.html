@@ -2,13 +2,11 @@
 <body>
 
 <div *ngFor="let concert of concertsData">
-  <h1>
     {{ concert.artist }}
     {{ concert.duration }}
     {{ concert.style }}
     {{ concert.startTime }}
-    <img src="{{ concert.photo.url }}"/>
-  </h1>
+    <img src="{{ concert.phototest.url }}"/>
 </div>
 </body>
 </html>
