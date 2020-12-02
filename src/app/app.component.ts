@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {GraphqlService} from './graphql.service';
-import {OpenweatherService} from "./openweather.service";
+import {OpenweatherService} from './openweather.service';
 
 @Component({
   selector: 'app-root',
@@ -8,23 +8,32 @@ import {OpenweatherService} from "./openweather.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  concertsData: any;
-  concert: any;
-  title = 'tpfinal';
-  city: string;
-  weatherDatas: any;
 
   constructor(private api: GraphqlService, private ows: OpenweatherService) {
     console.log('TODO call API!');
     this.api.getConcerts().subscribe((data) => {
       this.concertsData = data.concerts;
     });
+    this.api.getFestivals().subscribe((data) => {
+      this.festivalsData = data.festivals;
+      this.latFestival = this.festivalsData[0].address.latitude;
+      this.lonFestival = this.festivalsData[0].address.longitude;
+      console.log(this.festivalsData);
+    });
   }
-  
-  loadWeather() {
-    this.ows.getWeather(this.city).subscribe((data) => {
+  festivalsData: any;
+  festival: any;
+  concertsData: any;
+  concert: any;
+  title = 'tpfinal';
+  city: string;
+  weatherDatas: any;
+  latFestival: number;
+  lonFestival: number;
+
+  loadWeather(latFestival: number, lonFestival: number){
+    this.ows.getWeather(latFestival, lonFestival).subscribe((data) => {
       this.weatherDatas = data;
     });
   }
-  
 }

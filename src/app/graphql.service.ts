@@ -16,12 +16,28 @@ export class GraphqlService {
       query: `
         query {
           concerts {
+            id
             artist
             duration
             style
             startTime
             photo {
               url
+            }
+          }
+        }
+      `
+    }).pipe(map((r: any) => r.data));
+  }
+  getFestivals() {
+    return this.client.post(this.BASE_URL, {
+      query: `
+        query {
+          festivals {
+            id
+            address {
+              longitude
+              latitude
             }
           }
         }
