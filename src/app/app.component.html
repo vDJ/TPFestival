@@ -20,15 +20,17 @@
 </div>
 <div *ngIf="weatherDatas">
   <h2>Météo sur {{ weatherDatas.lat }}</h2>
-  <img src="http://openweathermap.org/img/w/{{ weatherDatas.current.weather[0].icon }}.png" alt="" style="float: left; margin-right: 30px;">
-  <ul>
-    <li>
-      {{ weatherDatas.daily[0].weather[0].main }}
-    </li>
-    <li>
-      {{ weatherDatas.daily[0].temp.day }}
-    </li>
-  </ul>
+  <div *ngFor="let meteo of weatherDatas">
+    <img src="http://openweathermap.org/img/w/{{ weatherDatas.daily[0].weather[0].icon }}.png" alt="" style="float: left; margin-right: 30px;">
+    <ul>
+      <li>
+        {{ weatherDatas.daily[0].weather[0].main }}
+      </li>
+      <li>
+        {{ weatherDatas.daily[0].temp.day }}
+      </li>
+    </ul>
+  </div>
 </div>
 
 </body>
