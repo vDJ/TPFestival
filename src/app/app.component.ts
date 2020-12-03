@@ -54,7 +54,8 @@ export class AppComponent {
 
     createConcert() {
       this.api.createConcert().subscribe( (data) => {
-        this.api.publishConcert(data.id).subscribe(() => {
+        console.log(data);
+        this.api.publishConcert(data.createConcert.id).subscribe(() => {
           this.api.getConcerts();
         });
       });

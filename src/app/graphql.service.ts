@@ -68,7 +68,7 @@ export class GraphqlService {
     return this.client.post(this.BASE_URL, {
       query: `
         mutation  {
-          publishConcert (where: {id: ""}, to: PUBLISHED) {
+          publishConcert (where: {id: "` + id + `"}, to: PUBLISHED) {
             id
           }
          }

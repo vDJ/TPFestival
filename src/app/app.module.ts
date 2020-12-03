@@ -6,11 +6,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CreateConcertFormComponent } from './create-concert-form/create-concert-form.component';
+
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CreateConcertFormComponent,
   ],
   imports: [
     BrowserModule,
