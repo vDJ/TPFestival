@@ -11,9 +11,9 @@
 
     <!-- ---------- LOGO ---------- -->
     <header class="text-center">
-      <img src="https://www.gece.fr/wp-content/uploads/2016/02/Hellfest-logo-2016.png" alt="logo Hellfest" id="logo-Hellfest" />
-      <h1>Lorem Ipsum</h1>
-      <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</p>
+      <img src="{{imageFestival}}" alt="logo Hellfest" id="logo-Hellfest" />
+      <h1>{{nameFestival}}</h1>
+      <p>{{ descriptionFestival }}</p>
     </header>
 
     <!-- ---------- MÉTÉO ---------- -->
@@ -27,7 +27,7 @@
         <input type="button" (click)="loadWeather(latFestival, lonFestival)" value="Afficher">
       </div>
       <div *ngIf="weatherDatas">
-        <h2>Météo sur {{ weatherDatas.lat }}</h2>
+        <h2>Météo sur {{ cityFestival }}</h2>
         <img src="http://openweathermap.org/img/w/{{ weatherDatas.current.weather[0].icon }}.png" alt="" style="float: left; margin-right: 30px;">
         <ul>
           <li>
@@ -44,10 +44,10 @@
     <div id="div-concerts" class="col-9 m-5">
       <div class="row">
         <div *ngFor="let concert of concertsData" class="card border-dark m-3 shadow">
-         <img src="{{ concert.photo.url }}" id="photo-concert" class="card-img-top" />
+        <img src="{{ concert.photo.url }}" id="photo-concert" class="card-img-top" />
           <div class="card-body">
             <h3 class="card-title">{{ concert.artist }}</h3>
-            <h4>{{ concert.startTime }} ({{ concert.duration }})</h4>
+            <h4>{{ concert.date }} ({{ concert.duration }})</h4>
             <p class="card-text">{{ concert.style }}</p>
           </div>
         </div>
@@ -59,7 +59,7 @@
     <footer class="bg-light text-center pt-2 pb-3">
       <div id="div-footer">
         <div id="div-logo-footer" class="col-4 text-left ml-5">
-          <img src="https://www.gece.fr/wp-content/uploads/2016/02/Hellfest-logo-2016.png" alt="logo Hellfest" id="logo-Hellfest-footer" />
+          <img src="{{imageFestival}}" alt="logo Hellfest" id="logo-Hellfest-footer" />
         </div>
         <div id="div-about-us" class="col-4 text-left ml-5">
           <h5>About Us</h5>

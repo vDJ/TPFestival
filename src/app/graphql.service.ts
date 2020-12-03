@@ -15,12 +15,13 @@ export class GraphqlService {
     return this.client.post(this.BASE_URL, {
       query: `
         query {
-          concerts {
+          concerts(orderBy: startTime_ASC) {
             id
             artist
             duration
             style
             startTime
+            date
             photo {
               url
             }
@@ -34,10 +35,16 @@ export class GraphqlService {
       query: `
         query {
           festivals {
+            name
             id
+            description
             address {
               longitude
               latitude
+            }
+            city
+            festivalimage {
+              url
             }
           }
         }

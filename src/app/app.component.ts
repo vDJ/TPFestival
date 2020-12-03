@@ -26,8 +26,12 @@ export class AppComponent {
     });
     this.api.getFestivals().subscribe((data) => {
       this.festivalsData = data.festivals;
+      this.nameFestival = this.festivalsData[0].name;
       this.latFestival = this.festivalsData[0].address.latitude;
       this.lonFestival = this.festivalsData[0].address.longitude;
+      this.cityFestival = this.festivalsData[0].city;
+      this.imageFestival = this.festivalsData[0].festivalimage.url;
+      this.descriptionFestival = this.festivalsData[0].description;
       console.log(this.festivalsData);
     });
   }
@@ -39,8 +43,12 @@ export class AppComponent {
     title = 'tpfinal';
     city: string;
     weatherDatas: any;
+    nameFestival: any;
     latFestival: number;
     lonFestival: number;
+    cityFestival: any;
+    imageFestival: any;
+    descriptionFestival: any;
 
     loadWeather(latFestival: number, lonFestival: number){
       this.ows.getWeather(latFestival, lonFestival).subscribe((data) => {
