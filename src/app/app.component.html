@@ -71,8 +71,8 @@
   <input type="button" (click)="createConcert()" value="créer concert">
 
 </form>-->
-
-<app-create-concert-form></app-create-concert-form>
+<button (click)="toggleShow()" type="checkbox" >show/hide</button>
+<div *ngIf="isShown" class="row container-fluid" id="divshow"><app-create-concert-form></app-create-concert-form></div>
 
 <!-- ---------- FOOTER ---------- -->
 <footer class="bg-light text-center pt-2 pb-3">

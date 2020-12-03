@@ -68,4 +68,9 @@ export class AppComponent {
         this.weatherDatas = data;
       });
     }
+
+  isShown: boolean = false ; // caché par défaut
+  toggleShow() {
+    this.isShown = ! this.isShown;
+  }
 }
