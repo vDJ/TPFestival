@@ -46,11 +46,11 @@ export class AppComponent {
   faPhone = faPhone;
   faAt = faAt;
 
+  title = 'tpfinal';
   festivalsData: any;
   festival: any;
   concertsData: any;
   concert: any;
-  title = 'tpfinal';
   city: string;
   weatherDatas: any;
   nameFestival: any;
@@ -62,21 +62,7 @@ export class AppComponent {
   dateStartFestival: string;
   diff: number;
 
-  isShown = false ; // caché par défaut
-
-
-
-
-/*    createConcert() {
-      this.api.createConcert().subscribe( (data) => {
-        console.log(data);
-        this.api.publishConcert(data.createConcert.id).subscribe(() => {
-          this.api.getConcerts();
-        });
-      });
-    }*/
-
-
+  isShown = false ; // caché par défaut - sert pour cacher la création de concert
 
     loadWeather(latFestival: number, lonFestival: number){
       this.ows.getWeather(latFestival, lonFestival).subscribe((data) => {
