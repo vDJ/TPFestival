@@ -53,7 +53,11 @@ export class AppComponent {
   descriptionFestival: any;
 
     createConcert() {
-      this.api.createConcert().subscribe();
+      this.api.createConcert().subscribe( (data) => {
+        this.api.publishConcert(data.id).subscribe(() => {
+          this.api.getConcerts();
+        });
+      });
     }
 
 

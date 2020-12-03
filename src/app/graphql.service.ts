@@ -58,10 +58,20 @@ export class GraphqlService {
       mutation  {
         createConcert(data: {artist: "test", startTime: "12/04/2020,18:00", date: "12/04/2020", festival: {connect: {id: "cki5tbzjs4yh80a01yl84gw70"}}, style: "test style", duration: "1h"}) {
           id
-          style
-          duration
          }
         }
+      `
+    }).pipe(map((r: any) => r.data));
+  }
+
+  publishConcert(id: string) {
+    return this.client.post(this.BASE_URL, {
+      query: `
+        mutation  {
+          publishConcert (where: {id: ""}, to: PUBLISHED) {
+            id
+          }
+         }
       `
     });
   }
