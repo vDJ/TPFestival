@@ -16,7 +16,6 @@ import { faAt } from '@fortawesome/free-solid-svg-icons';
 export class AppComponent {
 
   constructor(private api: GraphqlService, private ows: OpenweatherService) {
-    console.log('TODO call API!');
     this.api.getConcerts().subscribe((data) => {
       this.concertsData = data.concerts;
     });
@@ -28,8 +27,17 @@ export class AppComponent {
       this.cityFestival = this.festivalsData[0].city;
       this.imageFestival = this.festivalsData[0].festivalimage.url;
       this.descriptionFestival = this.festivalsData[0].description;
-      console.log(this.festivalsData);
+      this.dateStartFestival = this.festivalsData[0].date[0];
     });
+
+/*  let today = new Date();
+    const dd = String(today.getDate()).padStart(2, '0');
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const yyyy = today.getFullYear();
+    today = yyyy + '-' + mm + '-' + dd;
+    let diff =  (( Date.parse('2020-12-04') - Date.parse(today) ) / 86400000);
+    console.log(diff);*/
+
   }
   faFacebook = faFacebook;
   faTwitter = faTwitter;
@@ -51,8 +59,12 @@ export class AppComponent {
   cityFestival: any;
   imageFestival: any;
   descriptionFestival: any;
+  dateStartFestival: string;
+  diff: number;
 
   isShown = false ; // caché par défaut
+
+
 
 
 /*    createConcert() {
@@ -69,6 +81,7 @@ export class AppComponent {
     loadWeather(latFestival: number, lonFestival: number){
       this.ows.getWeather(latFestival, lonFestival).subscribe((data) => {
         this.weatherDatas = data;
+
       });
     }
   toggleShow() {

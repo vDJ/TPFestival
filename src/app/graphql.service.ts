@@ -36,6 +36,7 @@ export class GraphqlService {
           festivals {
             name
             id
+            date
             description
             address {
               longitude

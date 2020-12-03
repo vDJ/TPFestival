@@ -22,13 +22,13 @@
     </div>
     <div *ngIf="weatherDatas">
       <h2>Météo sur {{ cityFestival }}</h2>
-      <img src="http://openweathermap.org/img/w/{{ weatherDatas.current.weather[0].icon }}.png" alt="" id="logo-météo">
+      <img src="http://openweathermap.org/img/w/{{ weatherDatas.daily[1].weather[0].icon }}.png" alt="" id="logo-météo">
       <ul>
         <li>
-          {{ weatherDatas.daily[0].weather[0].main }}
+          {{ weatherDatas.daily[1].weather[0].main }}
         </li>
         <li>
-          {{ weatherDatas.daily[0].temp.day }}
+          {{ weatherDatas.daily[1].temp.day }}
         </li>
       </ul>
     </div>
