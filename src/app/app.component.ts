@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {GraphqlService} from './graphql.service';
-import {OpenweatherService} from "./openweather.service";
+import {OpenweatherService} from './openweather.service';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
