@@ -6,8 +6,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class OpenweatherService {
 
-  BASE_URL = "http://api.openweathermap.org/data/2.5/";
-  TOKEN = "f943980545a8746130564d4108211c4d";
+  BASE_URL = 'http://api.openweathermap.org/data/2.5/';
+  TOKEN = 'f943980545a8746130564d4108211c4d';
 
   constructor(private client: HttpClient) { }
 

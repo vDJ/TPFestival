@@ -1,37 +1,91 @@
-<html>
-<body>
+<!DOCTYPE html>
+<html lang="fr">
 
-<div *ngFor="let festival of festivalsData">
-  {{ festival.id }}
-  {{ festival.address.longitude }}
-  {{ festival.address.latitude }}
-</div>
+  <head>
+    <meta charset="utf-8">
+    <title>Helltest 2020</title>
+    <link rel="stylesheet" href="./app.component.css">
+  </head>
 
-<div *ngFor="let concert of concertsData">
-    {{ concert.artist }}
-    {{ concert.duration }}
-    {{ concert.style }}
-    {{ concert.startTime }}
-    <img src="{{ concert.photo.url }}"/>
-</div>
+  <body class="text-white">
 
-<div>
-  <input type="button" (click)="loadWeather(latFestival, lonFestival)" value="Afficher">
-</div>
-<div *ngIf="weatherDatas">
-  <h2>Météo sur {{ weatherDatas.lat }}</h2>
-  <div *ngFor="let meteo of weatherDatas">
-    <img src="http://openweathermap.org/img/w/{{ weatherDatas.daily[0].weather[0].icon }}.png" alt="" style="float: left; margin-right: 30px;">
-    <ul>
-      <li>
-        {{ weatherDatas.daily[0].weather[0].main }}
-      </li>
-      <li>
-        {{ weatherDatas.daily[0].temp.day }}
-      </li>
-    </ul>
-  </div>
-</div>
+    <!-- ---------- LOGO ---------- -->
+    <header class="text-center">
+      <img src="https://www.gece.fr/wp-content/uploads/2016/02/Hellfest-logo-2016.png" alt="logo Hellfest" id="logo-Hellfest" />
+      <h1>Lorem Ipsum</h1>
+      <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</p>
+    </header>
 
-</body>
+    <!-- ---------- MÉTÉO ---------- -->
+    <aside class="col-3">
+      <div *ngFor="let festival of festivalsData">
+        {{ festival.id }}
+        {{ festival.address.longitude }}
+        {{ festival.address.latitude }}
+      </div>
+      <div>
+        <input type="button" (click)="loadWeather(latFestival, lonFestival)" value="Afficher">
+      </div>
+      <div *ngIf="weatherDatas">
+        <h2>Météo sur {{ weatherDatas.lat }}</h2>
+        <img src="http://openweathermap.org/img/w/{{ weatherDatas.current.weather[0].icon }}.png" alt="" style="float: left; margin-right: 30px;">
+        <ul>
+          <li>
+            {{ weatherDatas.daily[0].weather[0].main }}
+          </li>
+          <li>
+            {{ weatherDatas.daily[0].temp.day }}
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- ---------- CONCERTS ---------- -->
+    <div id="div-concerts" class="col-9 m-5">
+      <div class="row">
+        <div *ngFor="let concert of concertsData" class="card border-dark m-3 shadow">
+         <img src="{{ concert.photo.url }}" id="photo-concert" class="card-img-top" />
+          <div class="card-body">
+            <h3 class="card-title">{{ concert.artist }}</h3>
+            <h4>{{ concert.startTime }} ({{ concert.duration }})</h4>
+            <p class="card-text">{{ concert.style }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---------- FOOTER ---------- -->
+
+    <footer class="bg-light text-center pt-2 pb-3">
+      <div id="div-footer">
+        <div id="div-logo-footer" class="col-4 text-left ml-5">
+          <img src="https://www.gece.fr/wp-content/uploads/2016/02/Hellfest-logo-2016.png" alt="logo Hellfest" id="logo-Hellfest-footer" />
+        </div>
+        <div id="div-about-us" class="col-4 text-left ml-5">
+          <h5>About Us</h5>
+          <p>Lorem Ipsum</p>
+        </div>
+        <div id="div-contact-us" class="col-4 text-left ml-5 mt-4">
+          <h5>Contact Us</h5>
+          <div id="phone" class="row">
+            <fa-icon [icon]="faPhone"></fa-icon>
+            <p class="ml-3">Lorem Ipsum</p>
+          </div>
+          <div id="mail" class="row">
+            <fa-icon [icon]="faAt"></fa-icon>
+            <p class="ml-3">Lorem Ipsum</p>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+        <a href="https://www.facebook.com"><fa-icon [icon]="faFacebook" id="Facebook"></fa-icon></a>
+        <a href="https://twitter.com"><fa-icon [icon]="faTwitter" id="Twitter"></fa-icon></a>
+        <a href="https://www.instagram.com/?hl=fr"><fa-icon [icon]="faInstagram" id="Instagram"></fa-icon></a>
+
+      <p>© Helltest 2020</p>
+    </footer>
+
+  </body>
 </html>

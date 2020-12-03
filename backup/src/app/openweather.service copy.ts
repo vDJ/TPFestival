@@ -11,8 +11,7 @@ export class OpenweatherService {
 
   constructor(private client: HttpClient) { }
 
-  getWeather(lat: number, lon: number) {
-    return this.client.get(this.BASE_URL + 'onecall?lat=' + lat + '&lon=' + lon + '&units=metric&exclude=minutely,hourly&APPID='
-      + this.TOKEN);
+  getWeather(query: string) {
+    return this.client.get(this.BASE_URL + 'weather?q=' + query + '&units=metric&APPID=' + this.TOKEN);
   }
 }

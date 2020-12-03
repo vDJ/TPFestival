@@ -1,0 +1,84 @@
+html, body{
+    font-family: 'Oswald', sans-serif;
+}
+
+body{
+    background-image: url("https://i.pinimg.com/originals/ad/47/af/ad47af29ad50df1477b9413f9d521db0.jpg");
+}
+
+/* ---------- HEADER ---------- */
+
+#logo-Hellfest{
+    width: 250px;
+}
+
+/* ---------- ASIDE ---------- */
+
+aside{
+    float: right;
+}
+
+#logo-météo{
+    float: left;
+    margin-right: 30px;
+}
+
+/* ---------- CONCERTS ---------- */
+
+#div-concerts{
+    color: #212121;
+}
+
+.card{
+    width: 18rem;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 10vw;
+    object-fit: cover;
+}
+
+/* ---------- FOOTER ---------- */
+
+footer p{
+    color: #212121;
+}
+
+#logo-Hellfest-footer{
+    width: 125px;
+}
+
+h5{
+    color: #212121;
+}
+
+#div-contact-us fa-icon{
+    color: #212121;
+}
+
+hr{
+    border-top: 2px solid #212121;
+    width: 50%;
+}
+
+a fa-icon{
+    color: #212121;
+    font-size: 2em;
+    padding: 15px;
+}
+
+#Facebook:hover{
+    color: #4267B2;
+    transition: 0.5s;
+}
+
+#Twitter:hover{
+    color: #1DA1F2;
+    transition: 0.5s;
+}
+
+#Instagram:hover{
+    color: #C13584;
+    transition: 0.5s;
+}
