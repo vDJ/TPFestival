@@ -14,12 +14,6 @@ import { faAt } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  faFacebook = faFacebook;
-  faTwitter = faTwitter;
-  faInstagram = faInstagram;
-  faYoutube = faYoutube;
-  faPhone = faPhone;
-  faAt = faAt;
 
   constructor(private api: GraphqlService, private ows: OpenweatherService) {
     console.log('TODO call API!');
@@ -37,6 +31,12 @@ export class AppComponent {
       console.log(this.festivalsData);
     });
   }
+  faFacebook = faFacebook;
+  faTwitter = faTwitter;
+  faInstagram = faInstagram;
+  faYoutube = faYoutube;
+  faPhone = faPhone;
+  faAt = faAt;
 
   festivalsData: any;
   festival: any;
@@ -52,14 +52,17 @@ export class AppComponent {
   imageFestival: any;
   descriptionFestival: any;
 
-    createConcert() {
+  isShown = false ; // caché par défaut
+
+
+/*    createConcert() {
       this.api.createConcert().subscribe( (data) => {
         console.log(data);
         this.api.publishConcert(data.createConcert.id).subscribe(() => {
           this.api.getConcerts();
         });
       });
-    }
+    }*/
 
 
 
@@ -68,8 +71,6 @@ export class AppComponent {
         this.weatherDatas = data;
       });
     }
-
-  isShown: boolean = false ; // caché par défaut
   toggleShow() {
     this.isShown = ! this.isShown;
   }

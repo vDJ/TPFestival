@@ -13,7 +13,7 @@ import { CreateConcertFormComponent } from './create-concert-form/create-concert
 @NgModule({
   declarations: [
     AppComponent,
-    CreateConcertFormComponent,
+    CreateConcertFormComponent
   ],
   imports: [
     BrowserModule,

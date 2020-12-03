@@ -1,21 +1,26 @@
-<form class="col-4 mb-5">
+<form class="col-4 ml-5 mb-5">
   <div class="form-group">
     <label for="add-artist">Artiste</label>
-    <input type="text" class="form-control" id="add-artist" placeholder="Entrez le nom de l'artiste">
+    <input type="text" class="form-control" id="add-artist" [(ngModel)]="artist" [ngModelOptions]="{standalone: true}" placeholder="Entrez le nom de l'artiste">
   </div>
   <div class="form-group">
     <label for="add-style">Style</label>
-    <input type="text" class="form-control" id="add-style" placeholder="Entrez le style de musique">
+    <input type="text" class="form-control" id="add-style" [(ngModel)]="style" [ngModelOptions]="{standalone: true}" placeholder="Entrez le style de musique">
   </div>
   <div class="form-group">
-    <label for="add-date">Date</label>
-    <input type="date" class="form-control" id="add-date">
+    <label for="add-date">Date et heure</label>
+    <input type="datetime-local" class="form-control" id="add-date" [(ngModel)]="datetime" [ngModelOptions]="{standalone: true}">
   </div>
   <div class="form-group">
-    <label for="add-lenght">Durée</label>
-    <input type="text" class="form-control" id="add-lenght" placeholder="Entrez la durée du concert">
+    <label for="add-duration">Durée</label>
+    <input type="text" class="form-control" id="add-duration" [(ngModel)]="duration" [ngModelOptions]="{standalone: true}" placeholder="Entrez la durée du concert">
   </div>
+<!--  <div class="form-group">
+    <label for="add-image">Durée</label>
+    <input type="file" class="form-control" id="add-image" [(ngModel)]="selectedFile" [ngModelOptions]="{standalone: true}" placeholder="Photo du concert">
+    <button (click)="onUpload()">Upload!</button>
+  </div>-->
 
-  <input type="button" (click)="createConcert()" value="créer concert">
+  <input type="submit" (click)="createConcert()" class="btn btn-light text-uppercase mt-3" value="Créer">
 
 </form>

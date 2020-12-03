@@ -1,4 +1,3 @@
-
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
@@ -52,11 +51,11 @@ export class GraphqlService {
     }).pipe(map((r: any) => r.data));
   }
 
-  createConcert() {
+  createConcert(artist: any, style: any, datetime: any, duration: any) {
   return this.client.post(this.BASE_URL, {
     query: `
       mutation  {
-        createConcert(data: {artist: "test", startTime: "12/04/2020,18:00", date: "12/04/2020", festival: {connect: {id: "cki5tbzjs4yh80a01yl84gw70"}}, style: "test style", duration: "1h"}) {
+        createConcert(data: {artist: "` + artist + `", date: "` + datetime.substr(0, 10) + `", startTime: "` + datetime + `", festival: {connect: {id: "cki5tbzjs4yh80a01yl84gw70"}}, style: "` + style + `", duration: "` + duration + `"}) {
           id
          }
         }
