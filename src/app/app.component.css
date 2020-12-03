@@ -12,6 +12,10 @@ body{
     width: 250px;
 }
 
+#description-festival{
+    font-size: 24px;
+}
+
 /* ---------- ASIDE ---------- */
 
 aside{
@@ -80,5 +84,10 @@ a fa-icon{
 
 #Instagram:hover{
     color: #C13584;
+    transition: 0.5s;
+}
+
+#YouTube:hover{
+    color: #FF0000;
     transition: 0.5s;
 }

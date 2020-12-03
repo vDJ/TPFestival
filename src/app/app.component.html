@@ -1,91 +1,89 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-  <head>
-    <meta charset="utf-8">
-    <title>Helltest 2020</title>
-    <link rel="stylesheet" href="./app.component.css">
-  </head>
+<head>
+  <meta charset="utf-8">
+  <title>Helltest 2020</title>
+  <link rel="stylesheet" href="./app.component.css">
+</head>
 
-  <body class="text-white">
+<body class="text-white">
 
-    <!-- ---------- LOGO ---------- -->
-    <header class="text-center">
-      <img src="{{imageFestival}}" alt="logo Hellfest" id="logo-Hellfest" />
-      <h1>{{nameFestival}}</h1>
-      <p>{{ descriptionFestival }}</p>
-    </header>
+<!-- ---------- LOGO ---------- -->
+<header class="text-center">
+  <img src="{{ imageFestival }}" alt="logo Hellfest" id="logo-Hellfest" />
+  <!--h1>{{ nameFestival }}</h1>-->
+  <p id="description-festival" class="w-50 mx-auto">{{ descriptionFestival }}</p>
+</header>
 
-    <!-- ---------- MÉTÉO ---------- -->
-    <aside class="col-3">
-      <div *ngFor="let festival of festivalsData">
-        {{ festival.id }}
-        {{ festival.address.longitude }}
-        {{ festival.address.latitude }}
-      </div>
-      <div>
-        <input type="button" (click)="loadWeather(latFestival, lonFestival)" value="Afficher">
-      </div>
-      <div *ngIf="weatherDatas">
-        <h2>Météo sur {{ cityFestival }}</h2>
-        <img src="http://openweathermap.org/img/w/{{ weatherDatas.current.weather[0].icon }}.png" alt="" style="float: left; margin-right: 30px;">
-        <ul>
-          <li>
-            {{ weatherDatas.daily[0].weather[0].main }}
-          </li>
-          <li>
-            {{ weatherDatas.daily[0].temp.day }}
-          </li>
-        </ul>
-      </div>
-    </aside>
+<!-- ---------- MÉTÉO ---------- -->
+<aside class="col-3">
+  <div class="pt-5">
+    <input type="button" (click)="loadWeather(latFestival, lonFestival)" value="Afficher la météo" class="btn btn-light text-uppercase">
+  </div>
+  <div *ngIf="weatherDatas">
+    <h2>Météo sur {{ cityFestival }}</h2>
+    <img src="http://openweathermap.org/img/w/{{ weatherDatas.current.weather[0].icon }}.png" alt="" id="logo-météo">
+    <ul>
+      <li>
+        {{ weatherDatas.daily[0].weather[0].main }}
+      </li>
+      <li>
+        {{ weatherDatas.daily[0].temp.day }}
+      </li>
+    </ul>
+  </div>
+</aside>
 
-    <!-- ---------- CONCERTS ---------- -->
-    <div id="div-concerts" class="col-9 m-5">
-      <div class="row">
-        <div *ngFor="let concert of concertsData" class="card border-dark m-3 shadow">
-        <img src="{{ concert.photo.url }}" id="photo-concert" class="card-img-top" />
-          <div class="card-body">
-            <h3 class="card-title">{{ concert.artist }}</h3>
-            <h4>{{ concert.date }} ({{ concert.duration }})</h4>
-            <p class="card-text">{{ concert.style }}</p>
-          </div>
-        </div>
+<!-- ---------- CONCERTS ---------- -->
+<main id="div-concerts" class="col-9 mt-5 pb-5 px-5">
+  <div class="row">
+    <div *ngFor="let concert of concertsData" class="card border-dark m-3 shadow">
+      <img src="{{ concert.photo.url }}" id="photo-concert" class="card-img-top" />
+      <div class="card-body">
+        <h3 class="card-title">{{ concert.artist }}</h3>
+        <h4>{{ concert.date }} ({{ concert.duration }})</h4>
+        <p class="card-text">{{ concert.style }}</p>
       </div>
     </div>
+  </div>
+  <div>
+    <input type="button" (click)="createConcert()" value="créer concert">
+  </div>
+</main>
 
-    <!-- ---------- FOOTER ---------- -->
-
-    <footer class="bg-light text-center pt-2 pb-3">
-      <div id="div-footer">
-        <div id="div-logo-footer" class="col-4 text-left ml-5">
-          <img src="{{imageFestival}}" alt="logo Hellfest" id="logo-Hellfest-footer" />
-        </div>
-        <div id="div-about-us" class="col-4 text-left ml-5">
-          <h5>About Us</h5>
-          <p>Lorem Ipsum</p>
-        </div>
-        <div id="div-contact-us" class="col-4 text-left ml-5 mt-4">
-          <h5>Contact Us</h5>
-          <div id="phone" class="row">
-            <fa-icon [icon]="faPhone"></fa-icon>
-            <p class="ml-3">Lorem Ipsum</p>
-          </div>
-          <div id="mail" class="row">
-            <fa-icon [icon]="faAt"></fa-icon>
-            <p class="ml-3">Lorem Ipsum</p>
-          </div>
-        </div>
+<!-- ---------- FOOTER ---------- -->
+<footer class="bg-light text-center pt-2 pb-3">
+  <div id="div-footer">
+    <div id="div-logo-footer" class="col-4 text-left ml-5">
+      <img src="{{imageFestival}}" alt="logo Hellfest" id="logo-Hellfest-footer" />
+    </div>
+    <div id="div-about-us" class="col-4 text-left ml-5">
+      <h5>About Us</h5>
+      <p>Deux étudiants en manque cruel de sommeil depuis que ce projet a été donné.</p>
+    </div>
+    <div id="div-contact-us" class="col-4 text-left ml-5 mt-4">
+      <h5>Contact Us</h5>
+      <div id="phone" class="row">
+        <fa-icon [icon]="faPhone"></fa-icon>
+        <p class="ml-3"> +33 2 51 88 79 50</p>
       </div>
+      <div id="mail" class="row">
+        <fa-icon [icon]="faAt"></fa-icon>
+        <p class="ml-3">contact@helltest.fr</p>
+      </div>
+    </div>
+  </div>
 
-      <hr />
+  <hr />
 
-        <a href="https://www.facebook.com"><fa-icon [icon]="faFacebook" id="Facebook"></fa-icon></a>
-        <a href="https://twitter.com"><fa-icon [icon]="faTwitter" id="Twitter"></fa-icon></a>
-        <a href="https://www.instagram.com/?hl=fr"><fa-icon [icon]="faInstagram" id="Instagram"></fa-icon></a>
+  <a href="https://www.facebook.com"><fa-icon [icon]="faFacebook" id="Facebook"></fa-icon></a>
+  <a href="https://twitter.com"><fa-icon [icon]="faTwitter" id="Twitter"></fa-icon></a>
+  <a href="https://www.instagram.com/?hl=fr"><fa-icon [icon]="faInstagram" id="Instagram"></fa-icon></a>
+  <a href="https://www.youtube.com"><fa-icon [icon]="faYoutube" id="YouTube"></fa-icon></a>
 
-      <p>© Helltest 2020</p>
-    </footer>
+  <p>© Helltest 2020</p>
+</footer>
 
-  </body>
+</body>
 </html>

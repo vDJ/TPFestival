@@ -51,4 +51,19 @@ export class GraphqlService {
       `
     }).pipe(map((r: any) => r.data));
   }
+
+  createConcert() {
+  return this.client.post(this.BASE_URL, {
+    query: `
+      mutation  {
+        createConcert(data: {artist: "test", startTime: "12/04/2020,18:00", date: "12/04/2020", festival: {connect: {id: "cki5tbzjs4yh80a01yl84gw70"}}, style: "test style", duration: "1h"}) {
+          id
+          style
+          duration
+         }
+        }
+      `
+    });
+  }
 }
+

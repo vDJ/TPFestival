@@ -4,6 +4,7 @@ import {OpenweatherService} from './openweather.service';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faAt } from '@fortawesome/free-solid-svg-icons';
 
@@ -16,6 +17,7 @@ export class AppComponent {
   faFacebook = faFacebook;
   faTwitter = faTwitter;
   faInstagram = faInstagram;
+  faYoutube = faYoutube;
   faPhone = faPhone;
   faAt = faAt;
 
@@ -36,19 +38,25 @@ export class AppComponent {
     });
   }
 
-    festivalsData: any;
-    festival: any;
-    concertsData: any;
-    concert: any;
-    title = 'tpfinal';
-    city: string;
-    weatherDatas: any;
-    nameFestival: any;
-    latFestival: number;
-    lonFestival: number;
-    cityFestival: any;
-    imageFestival: any;
-    descriptionFestival: any;
+  festivalsData: any;
+  festival: any;
+  concertsData: any;
+  concert: any;
+  title = 'tpfinal';
+  city: string;
+  weatherDatas: any;
+  nameFestival: any;
+  latFestival: number;
+  lonFestival: number;
+  cityFestival: any;
+  imageFestival: any;
+  descriptionFestival: any;
+
+    createConcert() {
+      this.api.createConcert().subscribe();
+    }
+
+
 
     loadWeather(latFestival: number, lonFestival: number){
       this.ows.getWeather(latFestival, lonFestival).subscribe((data) => {
